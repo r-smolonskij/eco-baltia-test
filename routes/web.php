@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\BookController;
+use App\Http\Controllers\OrderController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +15,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [BookController::class, 'index'])->name('books');
+Route::post('/orders/store', [OrderController::class, 'store'])->name('orders.store');
+
+// Auth::routes();
