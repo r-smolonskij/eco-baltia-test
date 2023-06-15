@@ -18,7 +18,6 @@ use Illuminate\Support\Facades\DB;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-// Route::get('/top10books', [BookController::class, 'getTop10Books']);
 Route::get('/topbooks', function (Request $request) {
     $thirtyDaysAgo = Carbon::now()->subDays(30);
     $topBooks = Order::select('book_id', DB::raw('COUNT(*) as orders_in_last_30_days'))
